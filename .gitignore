@@ -1,6 +1,11 @@
 *.class
-.settings
+.classpath
+.project
+/bin/
+.settings/
 target/
+dependency-reduced-pom.xml
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
