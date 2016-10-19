@@ -13,17 +13,17 @@ public class Row implements Serializable {
    * 
    */
   private static final long serialVersionUID = 1L;
-  int numSeats;
+  int numSeatsInRow;
   int rowNum;
   static int counter = 0;
   LinkedList<Integer> seats;
 
-  public Row(int numSeats) {
+  public Row(int numSeatsInRow) {
     counter++;
     rowNum = counter;
     seats = new LinkedList<Integer>();
-    this.numSeats = numSeats;
-    for (int i = 0; i < numSeats; i++) {
+    this.numSeatsInRow = numSeatsInRow;
+    for (int i = 0; i < numSeatsInRow; i++) {
       seats.add(i);
     }
   }
@@ -38,10 +38,11 @@ public class Row implements Serializable {
   }
 
   public synchronized int[] getSeats(int numSeats) {
+
     int[] retSeats = new int[numSeats];
     for (int i = 0; i < numSeats; i++) {
-      retSeats[i] = seats.getFirst();
-      seats.removeFirst();
+        retSeats[i] = seats.getFirst();
+        seats.removeFirst();
     }
     return retSeats;
   }

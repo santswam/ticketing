@@ -23,19 +23,19 @@ public class Ticketing {
     int max = 10;
 
 
-    for (int i = 0; i < 100000; i++) {
+    for (int i = 0; i < 2000; i++) {
 
       queue[i] =
           random(0, 1) == 1 ? new TicketEnquiry("test", random(min, max)) : new TicketEnquiry();
     }
     
     Set<Callable<TicketEnquiry>> callables = new HashSet<Callable<TicketEnquiry>>();
-    for (int i = 0; i < 100000; i++) {
+    for (int i = 0; i < 2000; i++) {
       callables.add(new TicketCounterQueue(queue[i]));
     
     }
     
-    for (int i = 0; i < 100000; i++) {
+    for (int i = 0; i < 2000; i++) {
       try{
       queue[i] = executorService.submit(new TicketCounterQueue(queue[i])).get();
         // if (queue[i].getStatus().equals(STATUS.HELD))

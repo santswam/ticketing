@@ -142,7 +142,7 @@ public class TicketEnquiry {
  + "::Seats=" + Arrays.toString(seats) : ":: Seats requested=" + numSeats));
         break;
       case RESERVE:
-        sb.append("Reservation Code= " + reservationCode);
+        sb.append("SeatHoldId= " + seatHoldId + " Reservation Code= " + reservationCode);
         break;
       default:
         break;

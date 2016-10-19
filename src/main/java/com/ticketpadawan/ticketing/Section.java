@@ -34,6 +34,7 @@ public class Section implements Serializable {
     return new Row(numSeatsPerRow);
   }
 
+
   public synchronized Seat[] getSeatsForHold(int numSeats) {
     boolean seatsAlloted = false;
     int[] seatPos = new int[numSeats];

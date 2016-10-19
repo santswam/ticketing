@@ -36,8 +36,8 @@ public class Venue implements Serializable {
 
 
   private Venue() {
-    numRows = 1000;
-    numSeatsPerRow = 50;
+    numRows = 100;
+    numSeatsPerRow = 20;
     totalSeats = numRows * numSeatsPerRow;
     heldSeatsCounter = new AtomicInteger(0);
     reservedSeatsCounter = new AtomicInteger(0);
