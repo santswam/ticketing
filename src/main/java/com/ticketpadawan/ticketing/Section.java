@@ -58,9 +58,10 @@ public class Section implements Serializable {
       seatPos = newRow.getSeats(numSeats);
       rowNum = newRow.getRowNum();
       activeRows.addLast(newRow);
+      seatsAlloted = true;
     }
 
-    return getSeatsforPos(seatPos, rowNum);
+    return seatsAlloted ? getSeatsforPos(seatPos, rowNum) : null;
   }
 
 

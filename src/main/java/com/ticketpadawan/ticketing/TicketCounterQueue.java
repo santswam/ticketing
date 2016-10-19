@@ -47,9 +47,13 @@ public class TicketCounterQueue implements Callable<TicketEnquiry> {
     
     if (counter.numSeatsAvailable() >= request.getNumSeats()) {
     SeatHold hold = counter.findAndHoldSeats(request.getNumSeats(), request.getCustomerEmail());
-    request.setSeatHoldId(hold.getSeatHoldId());
-    request.setSeats(hold.getSeats());
-      request.setStatus(STATUS.HELD);
+      if (hold != null) {
+        request.setSeatHoldId(hold.getSeatHoldId());
+        request.setSeats(hold.getSeats());
+        request.setStatus(STATUS.HELD);
+      } else {
+        request.setStatus(STATUS.UNAVAILABLE);
+      }
     } else {
       request.setStatus(STATUS.UNAVAILABLE);
     }
